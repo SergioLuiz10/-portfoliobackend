@@ -1,0 +1,28 @@
+# === Segredos (CRÍTICO) ===
+.env
+.env.local
+.env.*.local
+
+# === Ambiente virtual Python ===
+venv/
+.venv/
+env/
+
+# === Cache do Python ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# === VS Code ===
+.vscode/
+
+# === Sistema operacional ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Logs e bancos locais ===
+*.log
+*.sqlite3
