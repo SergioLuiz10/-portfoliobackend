@@ -1,0 +1,49 @@
+# Experiência Profissional — Sérgio Nunes
+
+## MG3 Inovação e Tecnologia — Estagiário de Dados e IA (atual)
+
+Sérgio trabalha atualmente como Estagiário de Dados e IA na
+MG3 Inovação e Tecnologia. É a posição atual dele.
+
+Apesar de ser uma posição de estágio, Sérgio lidera o
+desenvolvimento técnico do Crom.IA, a principal plataforma de
+IA da empresa. Entre as responsabilidades dele estão:
+
+- Projetar e implementar a arquitetura multi-agente do
+  produto, usando n8n para orquestração de fluxos entre os
+  agentes especializados.
+- Construir o pipeline de RAG (Retrieval-Augmented
+  Generation) em FastAPI, integrando LangChain, PGVector e
+  modelos da OpenAI.
+- Desenvolver um serviço de análise de imagem que usa o
+  GPT-4o Vision para interpretar gráficos e dados técnicos.
+- Criar automações de processos internos da empresa,
+  utilizando ferramentas como n8n, Microsoft Power Automate
+  e Microsoft Forms integradas a sistemas de gestão.
+- Configurar e manter a infraestrutura de deploy com Docker
+  no EasyPanel, rodando em uma VPS da Hostinger.
+- Implementar Edge Functions no Supabase com autenticação
+  por header secreto.
+
+O trabalho do Sérgio na MG3 combina dados, IA generativa e
+automação, sempre aplicados a problemas reais de negócio.
+Ele atua tanto na engenharia (construção de pipelines,
+serviços e integrações) quanto na automação de fluxos de
+trabalho que economizam tempo de equipes internas.
+
+## Hunter Consultoria — Estágiario Backend
+
+Antes da MG3, Sérgio fez um estágio na Hunter Consultoria, no
+período de março a junho de 2025. Foi a primeira experiência
+profissional dele na área de tecnologia, onde teve contato
+com rotina de trabalho em equipe, versionamento de código e
+desenvolvimento de funcionalidades.
+
+## Resumo da trajetória
+
+A trajetória profissional do Sérgio é recente, mas
+intensa: em pouco tempo ele saiu de um primeiro estágio para
+liderar tecnicamente uma plataforma de IA em produção. O
+diferencial dele não é tempo de carreira, e sim a
+profundidade técnica em dados, IA generativa, automação e
+arquitetura de sistemas que ele acumulou em projetos reais.
