@@ -25,4 +25,4 @@ def carregar_documentos():
         )
         documentos.append(documentos_pro_banco) #guarda o documento na lista de documentos q vao pro banco de dados
     return documentos   #devolve a lista de documentos para o processo de criação do banco de dados 
-   
+       
