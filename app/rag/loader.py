@@ -2,7 +2,7 @@ from pathlib import Path
 from langchain_core.documents import Document # tem a funcao de criar um documento a partir de um texto e metadados
 
 # Define o caminho para o diretório de dados, que é quatro níveis acima do arquivo atual e depois entra na pasta "data"
-DATA_DIR = Path(__file__).parent.parent.parent.parent / "data"
+DATA_DIR = Path(__file__).parent.parent.parent / "data"
 
 #1. Olha dentro da pasta data/ e lista os arquivos .md
 #2. Se não achar NENHUM → avisa com erro (algo tá errado)
