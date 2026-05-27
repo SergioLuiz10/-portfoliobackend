@@ -19,11 +19,21 @@ def rodar_ingestao():
 
     #pega a conexão com o banco para mandar os documentos picados pra lá
     conexao_com_banco = pegar_conexao_com_banco()
+
+    #limpa a coleção antes de inserir, pra não duplicar os chunks a cada ingestão
+    conexao_com_banco.delete_collection()
+
+
+   #cria a coleção no banco (se já existir, não faz nada, só garante que ela tá lá)
+    conexao_com_banco.create_collection()    
+
+
     #manda os documentos picados pro banco, que vai criar os vetores e guardar tudo lá
     conexao_com_banco.add_documents(documentos_picados)
-    #mostra quantos documentos picados foram enviados pro banco
-    print(f"[3/3] Documentos enviados para o banco: {len(documentos_picados)}")
 
+
+    #retorna a quantidade de documentos picados que foram enviados pro banco
+    return len(documentos_picados)
 
 # "botão de ligar": só roda a ingestão se o arquivo for executado direto
 # (python -m app.rag.ingest). Se for importado por outro arquivo, NÃO roda sozinho.
