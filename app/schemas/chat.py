@@ -9,7 +9,3 @@ class EntradaDoChat(BaseModel):
 
 
 
-#Retorna para a api (respostado do modelo)
-class RespostaDoChat(BaseModel):
-    response: str
-

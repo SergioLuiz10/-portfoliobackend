@@ -25,17 +25,17 @@ Seja direto, profissional e cordial."""
 
 
 
-#funcao vai recer a pergunta do usuario e os chunks parecidos do retriever , usar a ferramenta pra gerar a resposta e devolver só o texto da resposta pro chat.py devolver pro recrutador
-def gerar_resposta(pergunta_usuario, pedaços_parecidos , idioma ):
-    # junta os pedaços parecidos em um unico texto, separado por quebras de linha
-    # pra cada Document da lista chamo de chunk e pego o texto dela 
+#funcao vai recer a pergunta do usuario e os chunks parecidos do retriever , usar a ferramenta pra gerar a resposta e devolver só o texto da resposta pro chat.py devolver pro recrutador mandando pedaco por perdaco 
+def gerar_resposta_streaming(pergunta_usuario, pedaços_parecidos , idioma ):
+   #O retriever traz uma lista de objetos Document 
+   #Ia n entende lista entende texto puro
+   # .page_content (o texto cru) de cada chunk e junta numa string
     pedaços_juntos= "\n\n".join(chunk.page_content for chunk in pedaços_parecidos) 
     messagens_para_o_modelo = [
-       SystemMessage(content=INSTRUCOES_DO_SISTEMA), # as regras do jogo
-       HumanMessage(content=f"Contexto:\n{pedaços_juntos}\n\nPergunta: {pergunta_usuario}\n\nResponda em: {idioma}") # o contexto + a pergunta do recrutador+ o idioma que o recrutador quer a resposta (português ou inglês)
+       SystemMessage(content=INSTRUCOES_DO_SISTEMA), # As regras fixas  quem o modelo é, como deve responder
+       HumanMessage(content=f"Contexto:\n{pedaços_juntos}\n\nPergunta: {pergunta_usuario}\n\nResponda em: {idioma}") #A conversa do momento — contexto + pergunta + idioma
    ]
-   # manda as mensagens pro modelo e recebe a resposta
-   #invoke é o metodo que chama o modelo de linguagem, passando as mensagens como input e recebendo a resposta gerada
-   resposta_gerada = ferramenta_pra_gerar_resposta.invoke(messagens_para_o_modelo)
-   #content é o texto da resposta gerada pelo modelo, que é o que a gente quer retornar pro recrutador 
-    return resposta_gerada.content
+   
+   #chama a ferramenta de geração de resposta passando as mensagens e recebe a resposta gerada e usa streaming pra mabnda pedacinho por pedacinho
+    for pedacinho in ferramenta_pra_gerar_resposta.stream(messagens_para_o_modelo):
+        yield pedacinho.content  # o texto puro do chunk , manda fatia por fatia mas guarda na memoria pq vai mandar mais  
