@@ -1,11 +1,11 @@
 # Experiência Profissional — Sérgio Nunes
 
-## MG3 Inovação e Tecnologia — Estagiário de Dados e IA (atual)
+## MG3 Inovação e Tecnologia — Desenvolvedor Autônomo de Dados e IA (atual)
 
-Sérgio trabalha atualmente como Estagiário de Dados e IA na
+Sérgio trabalha atualmente como Desenvolvedor Autônomo de Dados e IA na
 MG3 Inovação e Tecnologia. É a posição atual dele.
 
-Apesar de ser uma posição de estágio, Sérgio lidera o
+Como desenvolvedor autônomo, Sérgio lidera o
 desenvolvimento técnico do Crom.IA, a principal plataforma de
 IA da empresa. Entre as responsabilidades dele estão:
 
