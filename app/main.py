@@ -12,14 +12,15 @@ app = FastAPI(title="Ask Sérgio API")
 # Lista de origens permitidas (dev local + prod na Vercel quando tiver a URL)
 origens_permitidas = [
     "http://localhost:3000",  # frontend Next.js em dev
-    # "https://seu-portfolio.vercel.app",  # adicionar no Dia 9
+    "https://portfoliofrontend-lovat-chi.vercel.app",  # frontend Next.js em produção
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origens_permitidas,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=origens_permitidas, # só permite chamadas dessas origens
+    allow_credentials=False,  # não permite cookies ou credenciais de autenticação
+    allow_methods=["*"], # permite todos os métodos HTTP (GET, POST, etc.) 
+    allow_headers=["*"],# permite todos os headers (Content-Type, Authorization, etc.
 )
 
 # faz a rota /ingest passar a existir de verdade,bater em POST /ingest funciona
