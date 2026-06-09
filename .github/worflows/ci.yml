@@ -1,0 +1,24 @@
+name: CI # nome no GitHub Actions
+on: # faz comçar 
+  push: # dispara toda vez q commitar  
+    pull_request: # dispara toda vez q abrir um pull request
+
+jobs: # título da seção onde vão as tarefas
+  qualidade: # nome do job
+    runs-on: ubuntu-latest # q tiupo de maquina o job vai rodar
+    steps: #lista de passos pro job
+      -name: Baixar o código # nome do passo
+       uses: actions/checkout@v2 #1 passo acao q baixa o código do repositório
+      -name : Configura Python # nome do passo
+       uses: actions/setup-python@v5 #2 passo acao q configura o python   
+      with: # baixar python com essas configs 
+        python-version: 3.12 # versão do python
+      -name: Instalar Ferramentas # nome do passo
+       run: | #3 passo rodar comandos para instalar as ferramentas
+        pip install ruff # instala o ruff(lê o código  e aponta problemas de qualidade e estilo)
+        pip install bandit # instala o bandit(analisa vulnerabilidades de segurança no código)
+      -name : Rodar lint (qualidade/estilo) 
+        run: ruff check . #4 passo rodar o ruff para verificar a qualidade do código(. significa verificar a pasta atual e subpastas)
+      -name: Rodar bandit (segurança)
+        run: bandit -r app/ #5 passo rodar o bandit para verificar vulnerabilidades de segurança(-r entra em subpastaas e app onde tem o codigo)
+
