@@ -12,7 +12,7 @@ app = FastAPI(title="Ask Sérgio API")
 # Lista de origens permitidas (dev local + prod na Vercel quando tiver a URL)
 origens_permitidas = [
     "http://localhost:3000",  # frontend Next.js em dev
-    "https://portfoliofrontend-lovat-chi.vercel.app",  # frontend Next.js em produção
+    "https://ask-sergio-portfolio.vercel.app/",  # frontend Next.js em produção
 ]
 
 app.add_middleware(
