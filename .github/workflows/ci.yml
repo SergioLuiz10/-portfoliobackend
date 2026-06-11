@@ -12,7 +12,7 @@ jobs: # título da seção onde vão as tarefas
      - name : Configura Python # nome do passo
        uses: actions/setup-python@v5 #2 passo acao q configura o python   
        with: # baixar python com essas configs 
-         python-version: 3.12 # versão do python
+         python-version: "3.11" # versão do python
      - name: Instalar Ferramentas # nome do passo
        run: | #3 passo rodar comandos para instalar as ferramentas
          pip install ruff # instala o ruff(lê o código  e aponta problemas de qualidade e estilo)

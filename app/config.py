@@ -11,7 +11,8 @@ class  Configurações_baseadas_env(BaseSettings):
     database_url: str  # URL de conexão com o banco de dados, necessária pra criar o banco e guardar os vetores
     embedding_model: str  # nome do modelo de embedding da OpenAI que a gente vai usar pra criar os vetores (ex: "text-embedding-3-small")
     llm_model: str  # nome do modelo de linguagem da OpenAI que a gente vai
-     
+    admin_token: str  # token secreto pra acessar as rotas de admin (ex: criar ou deletar vetores manualmente) 
+    
 
     #garante o driver +psycopg na url do banco (Railway manda "postgresql://" puro)
     @field_validator("database_url")#roda quando o pydantic le o campo database_url
@@ -26,7 +27,7 @@ class  Configurações_baseadas_env(BaseSettings):
 
     
     # diz onde ta o .env e que ele tá codificado em utf-8 (pra ler os acentos certinho)
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
+    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8",extra="ignore") #extra="forbid" faz o pydantic reclamar se tiver alguma variável no .env que não tá definida aqui
 
 
 # no momento que essa linha roda, o pydantic vai sozinho no .env e preenche 
