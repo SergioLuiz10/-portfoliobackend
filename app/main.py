@@ -30,6 +30,6 @@ app.include_router(ingest.router)
 app.include_router(chat.router)
 
 
-@app.get("/")
+@app.get("/health")
 def raiz():
     return {"message": "Bem-vindo à API de Perguntas e Respostas do Sérgio!"}

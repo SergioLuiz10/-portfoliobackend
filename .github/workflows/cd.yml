@@ -1,0 +1,25 @@
+name: CD # nome no GitHub Actions
+on: #start
+  workflow_run:  # liga qunado o o ci passar
+    workflows: ["CI"] # nome do workflow que tem que passar para esse rodar
+    types: [completed]  # quando o ci passar completo
+    branches: [main] # só roda se for na main , na mesma branch do ci
+
+jobs: # título da seção onde vão as tarefas
+    deploy: # nome do job
+     #so roda se o ci passar com sucesso
+     if: ${{ github.event.workflow_run.conclusion == 'success' }} 
+     runs-on: ubuntu-latest # q tiupo de maquina o job vai rodar
+     steps: #lista de passos pro job
+        - name: Baixar o código # nome do passo
+          uses: actions/checkout@v4 #1 passo acao q baixa o código do repositório
+        - name: Instalar o Railway CLI  # nome do passo
+          run: npm i -g @railway/cli  # 2 passo rodar comando para instalar o railway cli(ferramenta de deploy)
+        - name: Fazer deploy no Railway  # nome do passo
+          run: railway up --service=-portfoliobackend --ci  # sobe o backend pro Railway
+          env:  # variáveis de ambiente só desse passo
+            RAILWAY_TOKEN: ${{secrets.githubActions }}  # o token  salvo no GitHub
+        - name: Checar se o backend subiu vivo  # health check
+          run: |
+            sleep 40    
+            curl --fail --retry 5 --retry-delay 10 --retry-all-errors portfoliobackend-production-dd1f.up.railway.app/health   

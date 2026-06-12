@@ -14,9 +14,9 @@ jobs: # título da seção onde vão as tarefas
        with: # baixar python com essas configs 
          python-version: "3.11" # versão do python
      - name: Instalar Ferramentas # nome do passo
-       run: | #3 passo rodar comandos para instalar as ferramentas
-         pip install ruff # instala o ruff(lê o código  e aponta problemas de qualidade e estilo)
-         pip install bandit # instala o bandit(analisa vulnerabilidades de segurança no código)
+       run: | #3 passo rodar comandos para instalar as ferramentas # ruff do lint  problemas de qualidade e estilo)) e # instala o bandit( vulnerabilidades de segurança no código)
+         pip install ruff  
+         pip install bandit 
      - name : Rodar lint (qualidade/estilo) 
        run: ruff check . #4 passo rodar o ruff para verificar a qualidade do código(. significa verificar a pasta atual e subpastas)
      - name: Rodar bandit (segurança)
