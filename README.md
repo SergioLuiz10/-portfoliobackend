@@ -1,5 +1,6 @@
 # Ask Sérgio — Backend
 ![CI](https://github.com/SergioLuiz10/-portfoliobackend/actions/workflows/ci.yml/badge.svg)
+![CD](https://github.com/SergioLuiz10/-portfoliobackend/actions/workflows/cd.yml/badge.svg)
 
 API que responde perguntas sobre mim para recrutadores. O usuário digita uma pergunta no frontend e recebe uma resposta gerada por um LLM, mas fundamentada apenas nas informações que eu mesmo escrevi nos arquivos de dados.
 
