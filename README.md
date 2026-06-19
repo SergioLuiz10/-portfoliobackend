@@ -57,6 +57,10 @@ data/
 ├── 03-projetos.md
 ├── 04-stack.md
 └── 05-faq.md
+tests/
+├── test_chat.py
+├── test_health.py
+└── test_ingest.py
 ```
 
 ---
@@ -86,6 +90,7 @@ OPENAI_API_KEY=sk-...
 DATABASE_URL=postgresql://postgres:postgres@localhost:5433/asksergio
 EMBEDDING_MODEL=text-embedding-3-small
 LLM_MODEL=gpt-4o-mini
+ADMIN_TOKEN=escolha-um-token-secreto
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
 POSTGRES_DB=asksergio
@@ -107,7 +112,15 @@ python -m app.rag.ingest
 
 Isso carrega os arquivos `.md`, pica em chunks e popula o banco. Precisa ser feito ao menos uma vez antes de usar o `/chat`. Rode de novo sempre que atualizar os dados.
 
-### 5. Suba a API
+### 5. Rode os testes
+
+```bash
+pytest
+```
+
+Os testes usam `monkeypatch` pra simular banco e modelo — não precisam de conexão real.
+
+### 6. Suba a API
 
 ```bash
 uvicorn app.main:app --reload
