@@ -21,4 +21,16 @@ jobs: # título da seção onde vão as tarefas
        run: ruff check . #4 passo rodar o ruff para verificar a qualidade do código(. significa verificar a pasta atual e subpastas)
      - name: Rodar bandit (segurança)
        run: bandit -r app/ #5 passo rodar o bandit para verificar vulnerabilidades de segurança(-r entra em subpastaas e app onde tem o codigo)
-
+     - name: Instalar dependencias do projeto
+       # 6 passo rodar comando para instalar as dependências do projeto, usando o arquivo requirements.txt que lista as dependências necessárias para o projeto
+       run: pip install -r requirements.txt 
+     - name: Rodar testes (pytest)
+       # 7 passo rodar os testes automatizados usando o pytest, com a opção -v para saída detalhada dos resultados dos testes
+       env:
+         openai_api_key: "sk-fake-pra-ci"
+         database_url: "postgresql+psycopg://fake:fake@localhost:5432/fake"
+         embedding_model: "text-embedding-3-small"
+         llm_model: "gpt-4o-mini"
+         admin_token: "token_de_teste"
+       run: pytest -v
+ 
