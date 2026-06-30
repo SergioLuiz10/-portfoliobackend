@@ -5,9 +5,9 @@ from dataclasses import dataclass
 class CasoAvaliacao:
     #pergunta do recrutador 
     pergunta: str
-    #Termos que o chunk CERTO precisa conter  
+    #Termos que o chunk CERTO precisa conter(ve se o retrive trouxe certo)  
     palavras_chave: list[str]
-    #resposta de referência do recrutador
+    #resposta de referência do recrutador(compara com resposta da ia)
     resposta_referencia: str
 
 
