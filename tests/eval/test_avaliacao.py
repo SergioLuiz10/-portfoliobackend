@@ -1,6 +1,6 @@
 from app.rag.retriever import buscar_chunks_parecidos#usa a funcao de buscar de vdd batendo no banco
 from tests.eval.dataset import CASOS_AVALIACAO#chama os casos fakes pra comparar com a busca do banco
-
+ 
 
 #pra cada caso o retrieval trouxe o chunk certo?
 def test_retriever():
@@ -26,6 +26,14 @@ def test_retriever():
 
         # O caso "acerta" se a palavra-chave aparece em algum lugar do textão.
         acertou = palavra_chave in texto_completo_minusculo
+
+          #printa se acertou ou não, com o status de ✅ ou ❌
+        status = "✅" if acertou else "❌"
+         
+        #printa a pergunta do caso junto com o status de acerto 
+        print(f"{status} {caso.pergunta}")
+
+
         #se acertou, soma 1 no total de acertos
         if acertou:
             acertos += 1
