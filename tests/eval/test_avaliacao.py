@@ -1,8 +1,10 @@
 from app.rag.retriever import buscar_chunks_parecidos#usa a funcao de buscar de vdd batendo no banco
 from tests.eval.dataset import CASOS_AVALIACAO#chama os casos fakes pra comparar com a busca do banco
- 
+import pytest
+
 
 #pra cada caso o retrieval trouxe o chunk certo?
+@pytest.mark.eval # 
 def test_retriever():
     #quantos casos acertaram. Começa em zero
     acertos = 0

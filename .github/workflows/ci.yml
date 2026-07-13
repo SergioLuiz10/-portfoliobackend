@@ -32,5 +32,5 @@ jobs: # título da seção onde vão as tarefas
          embedding_model: "text-embedding-3-small"
          llm_model: "gpt-4o-mini"
          admin_token: "token_de_teste"
-       run: pytest -v
+       run: pytest -v -m "not eval"
  
