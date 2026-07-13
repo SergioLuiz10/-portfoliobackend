@@ -31,13 +31,21 @@ Ele atua tanto na engenharia (construção de pipelines,
 serviços e integrações) quanto na automação de fluxos de
 trabalho que economizam tempo de equipes internas.
 
-## Hunter Consultoria — Estágiario Backend
+## Hunter Consultoria — Estagiário Backend (experiência anterior)
 
-Antes da MG3, Sérgio fez um estágio na Hunter Consultoria, no
-período de março a junho de 2025. Foi a primeira experiência
-profissional dele na área de tecnologia, onde teve contato
-com rotina de trabalho em equipe, versionamento de código e
-desenvolvimento de funcionalidades.
+A experiência profissional anterior do Sérgio, antes da MG3,
+foi na Hunter Consultoria. Ele atuou como estagiário de
+desenvolvimento backend no período de março a junho de 2025.
+
+Essa foi a empresa onde o Sérgio trabalhou anteriormente e o
+primeiro emprego dele na área de tecnologia. Durante o
+estágio, ele teve contato com rotina de trabalho em equipe,
+versionamento de código com Git, desenvolvimento de
+funcionalidades e integração entre sistemas.
+
+Resumo do histórico de empregos do Sérgio:
+- Experiência anterior: Hunter Consultoria (mar/2025 a jun/2025)
+- Experiência atual: MG3 Inovação e Tecnologia
 
 ## Resumo da trajetória
 

@@ -6,7 +6,7 @@ from app.database import pegar_conexao_com_banco
 
 
 # quantos chunks q vai pegar do banco parecidos com a pergunta do usuario
-QUANTIDADE_CHUNKS_PARECIDOS= 3
+QUANTIDADE_CHUNKS_PARECIDOS= 5
 
 
 #funcao q pega os chunks mais parecidos do banco, recebendo a pergunta
