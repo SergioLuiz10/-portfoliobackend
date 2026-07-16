@@ -121,3 +121,60 @@ def test_faithfulness():
     print(f"\nFaithfulness: {respostas_fieis}/{total_de_casos} = {score:.2%}")
 
         
+
+
+INSTRUCOES_DO_JUIZ_RELEVANCIA = """Você é um avaliador de sistemas RAG.
+Sua tarefa é julgar se uma RESPOSTA de fato responde à PERGUNTA feita.
+
+Critério:
+- Responda SIM se a resposta aborda diretamente o que foi perguntado.
+- Responda NAO se a resposta fala de outro assunto, foge do tema, ou não endereça a pergunta.
+- Se a pergunta pede uma informação e a resposta diz educadamente que não a possui, isso conta como SIM (ela endereçou a pergunta de forma honesta).
+
+Não avalie se a resposta é verdadeira ou se está apoiada em algum contexto. Avalie APENAS se ela responde à pergunta.
+
+Responda com uma única palavra: SIM ou NAO."""
+
+# também gera resposta + chama o juiz, então também é caro e também fica fora do CI.
+@pytest.mark.eval
+#vai testar se a resposta do gerador realmente responde a pergunta do caso
+def test_relevance():
+    respostas_relevantes = 0
+    
+    #pegar as pergunts de cada caso e ver se a resposta do gerador responde a pergunta
+    for caso in CASOS_AVALIACAO:
+        #joga no banco real a pergunta fake do teste
+        chunks_parecidos=buscar_chunks_parecidos(caso.pergunta)
+        
+        #dps vai gerar a resposta do gerador com streaming
+        resposta_completa = ""
+        
+         #Esse for vai pegando cada pedacinho conforme ele sai.
+        for pedacinho in gerar_resposta_streaming(caso.pergunta, chunks_parecidos, "português"):
+            resposta_completa += pedacinho
+
+        mensagens_pro_juiz = [
+            #prompt criado pra o juiz
+            SystemMessage(content=INSTRUCOES_DO_JUIZ_RELEVANCIA),
+            #passando a pergunta e a resposta pro juiz analisar
+            HumanMessage(content=f"PERGUNTA:\n{caso.pergunta}\n\nRESPOSTA:\n{resposta_completa}"),
+            ]    
+        
+
+        #manda pro juiz analisar e ele vai responder SIM ou NAO
+        veredito = ferramenta_pra_julgar.invoke(mensagens_pro_juiz)
+        #pega o veredito do juiz e tira os espaços e coloca em maiúsc
+        texto_veredito = veredito.content.strip().upper()        #printa se a resposta do gerador respondeu a pergunta do caso ou não, com o status de ✅ ou ❌ 
+        
+        #printa a pergunta do caso junto com o status de relevância
+        status = "✅" if texto_veredito == "SIM" else "❌"
+        print(f"{status} {caso.pergunta}")
+
+        if texto_veredito == "SIM":
+            respostas_relevantes += 1
+    
+    # calcula a porcentagem de respostas relevantes
+    total_de_casos = len(CASOS_AVALIACAO)
+    score = respostas_relevantes / total_de_casos
+    print(f"\nRelevance: {respostas_relevantes}/{total_de_casos} = {score:.2%}")
+        
