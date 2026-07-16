@@ -24,6 +24,25 @@ pergunta do usuário  →  embedder  →  retriever  →  LLM  →  resposta (st
 
 ---
 
+## Avaliação do RAG
+
+A maioria dos projetos RAG para no deploy. Este tem uma suíte de avaliação automatizada que mede a qualidade do pipeline com três métricas padrão da literatura:
+
+| Métrica | O que mede | Score |
+|---|---|---|
+| **Context relevance** | O retriever trouxe os chunks certos para cada pergunta? | 7/7 — 100% |
+| **Faithfulness** | A resposta está ancorada no contexto recuperado? | 7/7 — 100% |
+| **Answer relevance** | A resposta realmente responde à pergunta feita? | 7/7 — 100% |
+
+Os testes usam um dataset de 7 casos reais (perfil, experiência, projetos, stack, certificações, formação) e um LLM juiz (`gpt-4o-mini`, `temperature=0`) para veredictos de faithfulness e answer relevance.
+
+```bash
+# requer banco + .env configurados
+pytest tests/eval/ -v -s
+```
+
+---
+
 ## Stack
 
 - **FastAPI** — framework da API
@@ -60,7 +79,11 @@ data/
 tests/
 ├── test_chat.py
 ├── test_health.py
-└── test_ingest.py
+├── test_ingest.py
+├── test_retriver.py
+└── eval/
+    ├── dataset.py       # 7 casos de avaliação com perguntas, palavras-chave e respostas de referência
+    └── test_avaliacao.py  # testes de context relevance, faithfulness e answer relevance
 ```
 
 ---
@@ -119,6 +142,16 @@ pytest
 ```
 
 Os testes usam `monkeypatch` pra simular banco e modelo — não precisam de conexão real.
+
+#### Testes de avaliação do RAG
+
+Ficam fora do CI (precisam do banco real e da OpenAI). Ver scores e detalhes na seção [Avaliação do RAG](#avaliação-do-rag).
+
+```bash
+pytest tests/eval/ -v -s
+```
+
+O `-s` é necessário para ver os ✅/❌ no terminal.
 
 ### 6. Suba a API
 
