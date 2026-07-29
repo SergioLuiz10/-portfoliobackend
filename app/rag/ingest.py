@@ -1,10 +1,15 @@
 # Carrega os .md, pica em chunks e manda pro banco (que embedda sozinho).
 # Roda como script:  python -m app.rag.ingest
 
-from app.rag.loader import carregar_documentos # loader pra le os .md 
-from app.rag.chunker import cortar_documentos # chunker pra picar os documentos em pedaços menores
-from app.database import pegar_conexao_com_banco # função pra criar a conexão com o banco
- 
+from app.database import (
+    pegar_conexao_com_banco,  # função pra criar a conexão com o banco
+)
+from app.rag.chunker import (
+    cortar_documentos,  # chunker pra picar os documentos em pedaços menores
+)
+from app.rag.loader import carregar_documentos  # loader pra le os .md 
+
+
 #carrega -> pica -> salva no banco 
 def rodar_ingestao():
     #carrega os documentos do .md e guardar numa lista de documento carregados

@@ -1,6 +1,5 @@
 from app.rag.retriever import buscar_chunks_parecidos
 
-
 #pergunta q falhou no teste de avaliação
 #jogar ela no banco pra ver quais chunks voltaram
 #pergunta = "Onde o Sérgio estuda e quando se forma?"

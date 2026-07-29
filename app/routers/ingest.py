@@ -1,6 +1,14 @@
-from fastapi import APIRouter, Depends , Header, HTTPException # vai ler o token do header o token ta no config , se n bater lança erro
+from fastapi import (  # vai ler o token do header o token ta no config , se n bater lança erro
+    APIRouter,
+    Depends,
+    Header,
+    HTTPException,
+)
+
+from app.config import (
+    objeto_config_env,  #pega o token pra comparar com o que vem no header
+)
 from app.rag.ingest import rodar_ingestao
-from app.config import objeto_config_env #pega o token pra comparar com o que vem no header
 
 #função que o endpoint vai chamar. Quando alguém bater em POST /ingest
 router = APIRouter()

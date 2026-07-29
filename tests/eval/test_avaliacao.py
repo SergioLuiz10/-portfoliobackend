@@ -1,11 +1,17 @@
-from app.rag.retriever import buscar_chunks_parecidos#usa a funcao de buscar de vdd batendo no banco
-from app.rag.gerador import gerar_resposta_streaming#usa a funcao de gerar resposta de vdd batendo na API da OpenAI
-from langchain_openai import ChatOpenAI
-from langchain_core.messages import SystemMessage, HumanMessage
-from app.config import objeto_config_env
-from tests.eval.dataset import CASOS_AVALIACAO#chama os casos fakes pra comparar com a busca do banco
 import pytest
+from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_openai import ChatOpenAI
 
+from app.config import objeto_config_env
+from app.rag.gerador import (
+    gerar_resposta_streaming,  #usa a funcao de gerar resposta de vdd batendo na API da OpenAI
+)
+from app.rag.retriever import (
+    buscar_chunks_parecidos,  #usa a funcao de buscar de vdd batendo no banco
+)
+from tests.eval.dataset import (
+    CASOS_AVALIACAO,  #chama os casos fakes pra comparar com a busca do banco
+)
 
 #cria o modelo que vai atuar como juiz.
 #ele vai receber a pergunta do caso, os chunks parecidos que o retriever trouxe e a resposta que o gerador deu e vai julgar se a resposta tá certa ou não
@@ -17,7 +23,7 @@ ferramenta_pra_julgar = ChatOpenAI(
 
 
 #pra cada caso o retrieval trouxe o chunk certo?
-@pytest.mark.eval # 
+@pytest.mark.eval
 def test_retriever():
     #quantos casos acertaram. Começa em zero
     acertos = 0

@@ -1,6 +1,11 @@
-from langchain_postgres import PGVector # a ferramenta que fala com o banco e guarda vetores
-from app.config import objeto_config_env # importa o .env e onde sai o database_url
-from app.rag.embedder import ferramenta_pra_embeddar # como o texto vira vetor chama la o embedder 
+from langchain_postgres import (
+    PGVector,  # a ferramenta que fala com o banco e guarda vetores
+)
+
+from app.config import objeto_config_env  # importa o .env e onde sai o database_url
+from app.rag.embedder import (
+    ferramenta_pra_embeddar,  # como o texto vira vetor chama la o embedder 
+)
 
 # nome da coleção onde os vetores vão ser guardados no banco
 NOME_COLECAO = "documentos_picados_sergio" 

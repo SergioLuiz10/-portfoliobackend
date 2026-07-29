@@ -1,10 +1,9 @@
 from fastapi import FastAPI
-from app.routers import ingest
-from app.routers import chat
 
 # Filtro que controla quem pode chamar a API
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.routers import chat, ingest
 
 # cria a aplicação FastAPI e registra o router de ingestão
 app = FastAPI(title="Ask Sérgio API")

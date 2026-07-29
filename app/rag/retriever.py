@@ -2,8 +2,7 @@
 # Dado uma pergunta, e devolve chunks mais parecidos guardados no banco.
 
 #se conecta com banco
-from app.database import pegar_conexao_com_banco  
-
+from app.database import pegar_conexao_com_banco
 
 # quantos chunks q vai pegar do banco parecidos com a pergunta do usuario
 QUANTIDADE_CHUNKS_PARECIDOS= 5

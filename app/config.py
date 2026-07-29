@@ -1,7 +1,9 @@
 # CONFIG — central de configurações. Lê o .env e entrega pro resto do projeto.
 
-from pydantic_settings import BaseSettings , SettingsConfigDict 
-from pydantic import field_validator #roda quando o pydantic le um campo pra ajustar o valor 
+from pydantic import (
+    field_validator,  #roda quando o pydantic le um campo pra ajustar o valor 
+)
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 #  ler as variáveis de ambiente do .env e entregar pro resto do projeto

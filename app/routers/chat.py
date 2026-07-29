@@ -13,6 +13,7 @@ from app.rag.gerador import (
 )  # GERAR a resposta do modelo usando o contexto , pergunta do usuário e idioma
 from app.rag.retriever import buscar_chunks_parecidos  # BUSCAR contexto no banco
 from app.schemas.chat import EntradaDoChat
+
 # função que o endpoint vai chamar. Quando alguém bater em POST /chat
 
 router = APIRouter()

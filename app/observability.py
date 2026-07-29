@@ -1,7 +1,6 @@
-import logging #traz timestamp,níveis(INFO/ERROR) e controle de formato
-import json # transformar os dados (pergunta, latência, chunks) em JSON
-from datetime import datetime, timezone #traz o timestamp atual em UTC
-
+import json  # transformar os dados (pergunta, latência, chunks) em JSON
+import logging  #traz timestamp,níveis(INFO/ERROR) e controle de formato
+from datetime import datetime, timezone  #traz o timestamp atual em UTC
 
 #cria o logger q faz o registro de logs 
 logger = logging.getLogger("ask_sergio")
