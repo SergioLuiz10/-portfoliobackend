@@ -2,8 +2,11 @@
 # Usada tanto na ingestão (embeddar chunks) quanto no chat (embeddar a pergunta)
 #pega os textos picados do chunker e transforma em vetores usando openai e manda pro ingest jogar no banco de dados
 
-from langchain_openai import OpenAIEmbeddings # embeddings da OpenAI, que transforma texto em vetores numéricos
-from app.config import objeto_config_env # importa as o .env
+from langchain_openai import (
+    OpenAIEmbeddings,  # embeddings da OpenAI, que transforma texto em vetores numéricos
+)
+
+from app.config import objeto_config_env  # importa as o .env
 
 #cria a ferramenta de embeddings já configurada com a chave da API e o modelo escolhido
 ferramenta_pra_embeddar = OpenAIEmbeddings(

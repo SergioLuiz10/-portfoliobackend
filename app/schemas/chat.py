@@ -1,5 +1,4 @@
-from pydantic import BaseModel 
-
+from pydantic import BaseModel
 
 
 #Recebe da api (mensagem do recrutador e a linguagem escolhida)

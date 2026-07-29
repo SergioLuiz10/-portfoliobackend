@@ -1,7 +1,14 @@
  # usar o Chatopenai q recebe a pergunta do usuario , pega os chunks do retriver e gera a resposta 
-from langchain_openai import ChatOpenAI  
-from app.config import objeto_config_env # importa o .env pra pegar a chave da API e o modelo de linguagem escolhido
-from langchain_core.messages import SystemMessage,HumanMessage # mensagens do langchain pra criar o prompt pro modelo de linguagem
+from langchain_core.messages import (  # mensagens do langchain pra criar o prompt pro modelo de linguagem
+    HumanMessage,
+    SystemMessage,
+)
+from langchain_openai import ChatOpenAI
+
+from app.config import (
+    objeto_config_env,  # importa o .env pra pegar a chave da API e o modelo de linguagem escolhido
+)
+
 #[ SystemMessage ]  →  as regras (a constante)
 #[ HumanMessage  ]  →  o contexto + a pergunta do recrutador
 from app.observability import registrar_evento

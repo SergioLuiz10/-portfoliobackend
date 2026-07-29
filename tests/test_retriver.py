@@ -1,4 +1,7 @@
-from app.rag.retriever import buscar_chunks_parecidos #função de buscar chunks parecidos do retriever
+from app.rag.retriever import (
+    buscar_chunks_parecidos,  #função de buscar chunks parecidos do retriever
+)
+
 
 # objeto fake que imita a conexão com o banco
 class ConexaoFake:

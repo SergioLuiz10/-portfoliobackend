@@ -1,5 +1,7 @@
-from langchain_text_splitters import RecursiveCharacterTextSplitter#a ferramenta de picar texto do LangChain
-from langchain_text_splitters import MarkdownHeaderTextSplitter# ferramenta que corta markdown q corta em cabeçalhos
+from langchain_text_splitters import (
+    MarkdownHeaderTextSplitter,  # ferramenta que corta markdown q corta em cabeçalhos
+    RecursiveCharacterTextSplitter,  #a ferramenta de picar texto do LangChain
+)
 
 #criar a ferramenta de picar texto ja configurada
 cortador_de_texto = RecursiveCharacterTextSplitter(

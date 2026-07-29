@@ -1,5 +1,6 @@
-from fastapi.testclient import TestClient#de teste que o próprio FastAPI 
-from app.main import app #importa a aplicação FastAPI do arquivo main.py
+from fastapi.testclient import TestClient  #de teste que o próprio FastAPI 
+
+from app.main import app  #importa a aplicação FastAPI do arquivo main.py
 
 #cria um cliente frontende fake pra testar a api entrando na pasta app 
 client = TestClient(app) 

@@ -1,6 +1,7 @@
-from fastapi.testclient import TestClient# cria o client teste do fastApi
-from app.main import app #chama o fastapi pra usar o client teste
-from app.config import objeto_config_env #chama as variaveis de ambiente 
+from fastapi.testclient import TestClient  # cria o client teste do fastApi
+
+from app.config import objeto_config_env  #chama as variaveis de ambiente 
+from app.main import app  #chama o fastapi pra usar o client teste
 
 client = TestClient(app)
 

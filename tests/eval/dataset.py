@@ -1,4 +1,5 @@
-from dataclasses import dataclass 
+from dataclasses import dataclass
+
 
 #serve pra representar um caso de avaliação
 @dataclass
