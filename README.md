@@ -43,12 +43,31 @@ pytest tests/eval/ -v -s
 
 ---
 
+## Observabilidade
+
+Cada geração de resposta emite um evento JSON estruturado no stdout:
+
+```json
+{
+  "evento": "chat_gerado",
+  "pergunta": "Quais tecnologias o Sérgio usa?",
+  "tokens_usados": { "input_tokens": 512, "output_tokens": 128 },
+  "idioma": "português",
+  "timestamp": "2025-01-01T12:00:00+00:00"
+}
+```
+
+Isso facilita a ingestão por qualquer coletor de logs (Railway, Datadog, etc.) sem dependência de bibliotecas externas.
+
+---
+
 ## Stack
 
 - **FastAPI** — framework da API
 - **LangChain** — orquestração do pipeline RAG
 - **OpenAI** — embeddings (`text-embedding-3-small`) e geração de texto (`gpt-4o-mini`)
 - **PostgreSQL + pgvector** — banco vetorial
+- **pydantic-settings** — leitura e validação do `.env` (corrige automaticamente o prefixo `postgres://` do Railway)
 - **Docker** — ambiente local do banco e deploy da aplicação
 
 ---
@@ -57,19 +76,21 @@ pytest tests/eval/ -v -s
 
 ```
 app/
-├── main.py          # criação do app FastAPI e registro dos routers
-├── config.py        # leitura do .env via pydantic-settings
-├── database.py      # conexão com o pgvector
+├── main.py              # criação do app FastAPI e registro dos routers
+├── config.py            # leitura do .env via pydantic-settings
+├── database.py          # conexão com o pgvector
+├── observability.py     # log de eventos em JSON estruturado no stdout
+├── debug_retrieval.py   # script ad-hoc para inspecionar chunks retornados (dev)
 ├── routers/
-│   ├── chat.py      # POST /chat
-│   └── ingest.py    # POST /ingest
+│   ├── chat.py          # POST /chat
+│   └── ingest.py        # POST /ingest
 ├── rag/
-│   ├── loader.py    # lê os .md da pasta data/
-│   ├── chunker.py   # pica os documentos em chunks
-│   ├── embedder.py  # ferramenta de embeddings da OpenAI
-│   ├── retriever.py # busca os chunks mais parecidos no banco
-│   ├── gerador.py   # monta o prompt e gera a resposta em streaming
-│   └── ingest.py    # orquestra o pipeline de ingestão
+│   ├── loader.py        # lê os .md da pasta data/
+│   ├── chunker.py       # pica os documentos em chunks (size=1000, overlap=150)
+│   ├── embedder.py      # ferramenta de embeddings da OpenAI
+│   ├── retriever.py     # busca os 5 chunks mais parecidos no banco
+│   ├── gerador.py       # monta o prompt e gera a resposta em streaming
+│   └── ingest.py        # orquestra o pipeline de ingestão
 data/
 ├── 01-perfil.md
 ├── 02-experiencia.md
