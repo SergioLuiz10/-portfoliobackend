@@ -29,7 +29,6 @@ logger.propagate = False
 #placar , vai somando o total de perguntas, latência e erros
 metricas = {
     "total_perguntas": 0, #ve quantas perguntas foram feitas
-    "soma_latencia": 0.0, # soma a latência de todas as perguntas
 
 }
 
