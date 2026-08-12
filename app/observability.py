@@ -25,12 +25,24 @@ logger.addHandler(handler)
 logger.propagate = False
 
 
+# feito para registrar métricas de latência e contagem de perguntas, erros, etc.
+#placar , vai somando o total de perguntas, latência e erros
+metricas = {
+    "total_perguntas": 0, #ve quantas perguntas foram feitas
+    "soma_latencia": 0.0, # soma a latência de todas as perguntas
+
+}
 
 #registra os eventos no log, transformando os dados em JSON e enviando para o logger
 #**dados aceita qualquer quantidade de argumentos nomeados
 def registrar_evento(**dados):
     #adiciona o timestamp atual em UTC no dicionário de dados
     dados["timestamp"] = datetime.now(timezone.utc).isoformat()
+    #se o evento for "chat_recebido", incrementa o contador de perguntas e adiciona o total de perguntas no dicionário de dados
+    if dados.get("evento") == "chat_recebido":
+        #incrementa o contador de perguntas
+        metricas["total_perguntas"] += 1
+       
     #transforma o dicionário de dados em uma string JSON e envia para o logger
     #pega o dicionário dados (com pergunta, latência, timestamp)
     #ensure_ascii=False garante que caracteres especiais sejam preservados no JSON
