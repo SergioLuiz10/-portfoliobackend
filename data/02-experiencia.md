@@ -1,9 +1,21 @@
 # Experiência Profissional — Sérgio Nunes
 
+## Sunter Tecnologia — Engenheiro de IA Júnior (atual)
+
+Sérgio trabalha atualmente como Engenheiro de IA Júnior na Sunter
+Tecnologia, em regime PJ, desde outubro de 2026. O trabalho é
+presencial, em Salvador, Bahia. É uma das posições atuais dele,
+em paralelo ao trabalho como desenvolvedor autônomo na MG3.
+
+Na Sunter, Sérgio atua no time de Implementação, desenvolvendo
+sistemas com IA para projetos de clientes, do backend ao frontend.
+Trabalha com agentes de código em ambiente de servidor,
+transformando demandas em funcionalidades entregues.
+
 ## MG3 Inovação e Tecnologia — Desenvolvedor Autônomo de Dados e IA (atual)
 
 Sérgio trabalha atualmente como Desenvolvedor Autônomo de Dados e IA na
-MG3 Inovação e Tecnologia. É a posição atual dele.
+MG3 Inovação e Tecnologia. Continua nessa posição, em paralelo à Sunter.
 
 Como desenvolvedor autônomo, Sérgio lidera o
 desenvolvimento técnico do Crom.IA, a principal plataforma de
@@ -45,7 +57,7 @@ funcionalidades e integração entre sistemas.
 
 Resumo do histórico de empregos do Sérgio:
 - Experiência anterior: Hunter Consultoria (mar/2025 a jun/2025)
-- Experiência atual: MG3 Inovação e Tecnologia
+- Experiências atuais: Sunter Tecnologia (Engenheiro de IA Júnior, PJ, desde out/2026) e MG3 Inovação e Tecnologia (Desenvolvedor Autônomo de Dados e IA, freelancer)
 
 ## Resumo da trajetória
 

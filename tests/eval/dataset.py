@@ -17,8 +17,8 @@ CASOS_AVALIACAO: list[CasoAvaliacao] = [
           # ── Caso 1 ──────────────────────────────
     CasoAvaliacao(
         pergunta="Onde o Sérgio trabalha atualmente?",
-        palavras_chave=["MG3"],
-        resposta_referencia="Sérgio trabalha atualmente na MG3."
+        palavras_chave=["Sunter", "MG3"],
+        resposta_referencia="Sérgio trabalha atualmente na Sunter Tecnologia e na MG3."
 
     ),
        # ── Caso 2 ──────────────────────────────

@@ -2,11 +2,8 @@
 
 ## O Sérgio está disponível para novas oportunidades?
 
-Sim. Sérgio está aberto a novas oportunidades, tanto vagas de
-estágio quanto vagas de efetivo júnior. Para ele, os dois
-formatos são bem-vindos — o que importa é a oportunidade de
-trabalhar com IA generativa, automação e desenvolvimento
-backend, e de crescer profissionalmente.
+Sérgio está trabalhando na Sunter Tecnologia e como freelancer
+na MG3, mas está aberto a conversar sobre oportunidades.
 
 ## O Sérgio trabalha remoto, híbrido ou presencial?
 
@@ -45,10 +42,8 @@ que é open source, e outros trabalhos de desenvolvimento.
 
 ## O Sérgio pode começar quando?
 
-Sérgio está disponível para conversar sobre novas
-oportunidades a qualquer momento. Detalhes sobre data de
-início e disponibilidade de horário podem ser alinhados
-diretamente com ele pelos canais de contato.
+Data de início e disponibilidade de horário são alinhadas
+diretamente com o Sérgio pelos canais de contato.
 
 ## O Sérgio tem experiência mesmo sendo estagiário?
 
