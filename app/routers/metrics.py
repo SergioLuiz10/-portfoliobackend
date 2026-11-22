@@ -1,6 +1,8 @@
-from app.observability import metricas # faz o registro de métricas de latência e contagem de perguntas, erros, etc.    
-
 from fastapi import APIRouter
+
+from app.observability import (
+    metricas,  # faz o registro de métricas de latência e contagem de perguntas, erros, etc.    
+)
 
 router = APIRouter()
 

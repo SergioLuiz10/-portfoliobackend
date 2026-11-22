@@ -1,6 +1,6 @@
 import json  # transformar os dados (pergunta, latência, chunks) em JSON
 import logging  #traz timestamp,níveis(INFO/ERROR) e controle de formato
-from datetime import datetime, timezone  #traz o timestamp atual em UTC
+from datetime import UTC, datetime  #traz o timestamp atual em UTC
 
 #cria o logger q faz o registro de logs 
 logger = logging.getLogger("ask_sergio")
@@ -36,7 +36,7 @@ metricas = {
 #**dados aceita qualquer quantidade de argumentos nomeados
 def registrar_evento(**dados):
     #adiciona o timestamp atual em UTC no dicionário de dados
-    dados["timestamp"] = datetime.now(timezone.utc).isoformat()
+    dados["timestamp"] = datetime.now(UTC).isoformat()
     #se o evento for "chat_recebido", incrementa o contador de perguntas e adiciona o total de perguntas no dicionário de dados
     if dados.get("evento") == "chat_recebido":
         #incrementa o contador de perguntas
